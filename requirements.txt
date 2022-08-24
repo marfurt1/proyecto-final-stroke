@@ -14,3 +14,9 @@ sympy>=1.10.1
 
 # Machine learning ----------------------------
 sklearn
+seaborn
+statsmodels
+sklearn
+plotly
+statsmodels
+
