@@ -23,7 +23,8 @@ from imblearn.under_sampling import NearMiss
 from collections import Counter
 
 
-df_raw = pd.read_csv('/content/drive/MyDrive/4geeks/Proyecto/colab/healthcare-dataset-stroke-data.csv')
+#df_raw = pd.read_csv('/content/drive/MyDrive/4geeks/Proyecto/colab/healthcare-dataset-stroke-data.csv')
+df_raw = pd.read_csv('../data/raw/healthcare-dataset-stroke-data.csv')
 
 #Remove data about person below 35 years-old
 df_filter_age35 = df_raw[df_raw['age']>35]
