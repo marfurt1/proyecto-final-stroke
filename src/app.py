@@ -1,33 +1,42 @@
+#import libraries
+
 import pandas as pd
 import numpy as np
-import seaborn as sns
-
+import seaborn as sns 
+import math
+import warnings 
 import matplotlib.pyplot as plt
-import plotly.express as px
-import statsmodels.formula.api as smf
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
 
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import classification_report 
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split  
 from sklearn.linear_model import LogisticRegression
-from sklearn.impute import KNNImputer
-from sklearn.preprocessing import LabelEncoder, StandardScaler, OrdinalEncoder 
-from sklearn.pipeline import Pipeline 
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import FunctionTransformer
+from sklearn.metrics import (accuracy_score, 
+                             auc, 
+                             precision_score,
+                             recall_score,
+                             f1_score, 
+                             roc_auc_score, RocCurveDisplay, roc_curve,
+                             confusion_matrix, classification_report)
 
 from imblearn.under_sampling import NearMiss
 from collections import Counter
 
+from imblearn.over_sampling import RandomOverSampler
 
-df_raw = pd.read_csv('/content/drive/MyDrive/4geeks/Proyecto/colab/healthcare-dataset-stroke-data.csv')
+from imblearn.ensemble import BalancedBaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
 
-#Remove data about person below 35 years-old
-df_filter_age35 = df_raw[df_raw['age']>35]
-df_raw = df_filter_age35.copy()
+from sklearn.ensemble import RandomForestClassifier,GradientBoostingClassifier
+from sklearn.model_selection import GridSearchCV
+
+from sklearn.neighbors import KNeighborsClassifier
+
+#Load dataset
+df_raw = pd.read_csv('../data/raw/healthcare-dataset-stroke-data.csv')
+
+#df_raw = pd.read_csv('/content/drive/MyDrive/4geeks/Proyecto/colab/healthcare-dataset-stroke-data.csv')
+
+
 
 #Impute BMI value
 labels = ['35 - 44.9', '45 - 54.9', '55 - 64.9', '65 - +'] 
