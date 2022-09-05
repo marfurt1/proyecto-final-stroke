@@ -83,3 +83,5 @@ df_raw['work_type'] = df_raw['work_type'].map({'Private' : 0, 'Self-employed': 1
 df_raw['work_type'] =df_raw['work_type'].astype(int)
 
 df_raw.drop(["age_bins","bmi_new","id"],axis=1,inplace=True)
+
+# falta traer el modelo

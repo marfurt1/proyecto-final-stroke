@@ -1,4 +1,6 @@
-# Grupo 6 Bootcamp UTEC mayo-22 agosto 22
+# Bootcamp Grupo 6 - UTEC  BID 4Geeks Mayo-Agosto 2022
+
+*PROYECTO FINAL*
 
 Sandra Salvático
 Germán Bentancor
