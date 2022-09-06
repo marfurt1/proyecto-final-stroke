@@ -15,8 +15,6 @@ from imblearn.over_sampling import RandomOverSampler
 #Load dataset
 df_raw = pd.read_csv('../data/raw/healthcare-dataset-stroke-data.csv')
 
-#usamos este en el drive compartido
-df_raw = pd.read_csv('/content/drive/MyDrive/4geeks/Proyecto/colab/Copia de healthcare-dataset-stroke-data.csv')
 
 #BMI Missing Value and outliers
 #Create Age bins 
@@ -37,7 +35,7 @@ df_raw['bmi'].fillna(df_raw['bmi_new'], inplace = True)
 df_raw.drop(df_raw[(df_raw['bmi'] > 80)].index, inplace=True)
 
 #Transformation of category feature, and remove feature
-#set age as int
+
 df_raw['stroke']=df_raw['stroke'].astype(int)
 df_raw['age']=df_raw['age'].astype(int)
 df_raw['heart_disease']=df_raw['heart_disease'].astype(int)
@@ -68,6 +66,7 @@ df_raw.drop(["age_bins","bmi_new","id"],axis=1,inplace=True)
 #we define our labels and features
 y = df_raw['stroke']
 X = df_raw.drop('stroke', axis=1)
+
 #we divide into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13, stratify=y)
 
@@ -100,14 +99,17 @@ y_train_muestra.value_counts()
 
 os =  RandomOverSampler()
 X_train_res, y_train_res = os.fit_resample(X_train_muestra, y_train_muestra)
+
 print ("Distribution before resampling {}".format(Counter(y_train_muestra)))
 print ("Distribution labels after resampling {}".format(Counter(y_train_res)))
+
 y_train_final=pd.concat([y_train_nostroke, y_train_res ], ignore_index=True)
 X_train_final=pd.concat([X_train_nostroke, X_train_res ], ignore_index=True)
+
 print ("Distribution labels finals {}".format(Counter(y_train_final)))
+
 model_samp = run_model(X_train_final, X_test, y_train_final, y_test) 
 pred_y = model_samp.predict(X_test)
-
 print(confusion_matrix(y_test, pred_y))
 print(classification_report(y_test, pred_y,zero_division=False))
 """
