@@ -1,7 +1,9 @@
-# Bootcamp Grupo 6 - UTEC  BID 4Geeks Mayo-Agosto 2022
+# Bootcamp Grupo 6 - UTEC  BID 4Geeks Mayo-Agosto 2022 
 
-*PROYECTO FINAL*
+# *PROYECTO FINAL* 
+# Stroke Prediction 
 
-Sandra Salvático
-Germán Bentancor
-Ana Marfurt
+*   Bentancor, Germán 
+*   Marfurt, Ana 
+*   Salvático, Sandra
+
