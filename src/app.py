@@ -84,7 +84,7 @@ print(classification_report(y_test, pred_y,zero_division=False))
 print(X_test.info())
 
 
-Flask Dump
+#Flask Dump
 filename = '../models/stroke_model.pkl'
 pickle.dump(model_balanced, open(filename,'wb'))
 
